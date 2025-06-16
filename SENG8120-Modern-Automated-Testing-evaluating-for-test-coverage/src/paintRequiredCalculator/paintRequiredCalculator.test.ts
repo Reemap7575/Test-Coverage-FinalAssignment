@@ -1,9 +1,16 @@
-import paintRequiredCalculator from "./paintRequiredCalculator";
 
-describe("paint required calculator", () => {
-  test("should return expected result", () => {
-    const result = paintRequiredCalculator(50, 10);
+import { paintRequired } from './paintRequiredCalculator';
 
-    expect(result).toEqual(5);
+describe('paintRequired', () => {
+  it('should return required litres of paint', () => {
+    expect(paintRequired(100, 10)).toBe(10);
+  });
+
+  it('should round up partial litres', () => {
+    expect(paintRequired(95, 10)).toBe(10);
+  });
+
+  it('should throw error for invalid inputs', () => {
+    expect(() => paintRequired(-1, 10)).toThrow('Invalid input');
   });
 });
