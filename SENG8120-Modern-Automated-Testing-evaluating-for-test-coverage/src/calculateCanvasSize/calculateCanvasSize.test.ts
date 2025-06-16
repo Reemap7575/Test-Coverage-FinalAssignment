@@ -1,9 +1,12 @@
-import calculateCanvasSize from "./calculateCanvasSize";
+import { calculateCanvasSize } from './calculateCanvasSize';
 
-describe("calculateCanvasSize", () => {
-  test("returns correct result", () => {
-    const result = calculateCanvasSize("10", "100");
+describe('calculateCanvasSize', () => {
+  it('should return area for valid dimensions', () => {
+    expect(calculateCanvasSize(10, 20)).toBe(200);
+  });
 
-    expect(result).toEqual(1000);
-  })
+  it('should throw error for non-positive dimensions', () => {
+    expect(() => calculateCanvasSize(0, 10)).toThrow('Invalid dimensions');
+  });
 });
+
